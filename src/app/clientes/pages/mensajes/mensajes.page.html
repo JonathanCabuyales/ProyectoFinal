@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="cliente"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mensajes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirbuscar()">
+        <ion-icon slot="icon-only" [name]="!abrirSearch ? 'search-outline' : 'close-circle-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-item *ngIf="abrirSearch">
+    <ion-searchbar placeholder="Buscar" [value]="buscarTexto" [animated]="true" cancelButtonIcon="close-circle-outline" inputmode="text" type="search" (ionClear)="cancelado()" (ionFocus)="limpiarTexto()" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="focus"></ion-searchbar>
+  </ion-item>
+
+  <div *ngIf="chats.length > 0">
+    <ng-container *ngFor="let msj of (chats)">
+    
+      <ion-item  *ngFor="let msm of (msj.mensajes.mensajes | ultimoMensaje)"  (click)="chatDirect( msj.mensajes.to, msj.mensajes.from)" detail>
+        
+        <ion-avatar slot="start">
+          <img [src]="msj.fotos | fotos" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ msj.mensajes.nombreTo }}</h2>
+          <p>{{ msm.mensaje |slice:0:12}} .........</p>
+          <p>{{ msm.fecha }}</p>
+        </ion-label>
+        <ion-note>
+          {{ msm.hora }}
+        </ion-note>
+      </ion-item>
+    </ng-container>
+  </div>
+  
+
+  <ion-card *ngIf="chats.length === 0">
+    <ion-card-header>
+      <ion-img src="/assets/img/not-found.png"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      Lo sentimos no tienes mensajes disponibles.
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>

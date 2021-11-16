@@ -1,0 +1,24 @@
+.validadorCorreo > small{
+    display: block;
+}
+
+.validadorCorreo > small{
+    color: red;
+}
+.successPass > small{
+    color: rgb(132, 209, 240);
+}
+
+.cedulaIgual > small{
+    color: red;
+    height: auto;
+    display: block;
+}
+
+.is-invalid{
+    border: 1px solid red;
+}
+
+.cedulaIgual{
+    display: block;
+}

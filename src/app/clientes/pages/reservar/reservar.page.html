@@ -1,0 +1,198 @@
+<ion-header >
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs-cliente/ubicaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reservar ¿Cuando jugamos?</ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-grid >
+    <ion-row>
+      <ion-col size="12"> 
+        <ion-img class="img" *ngFor="let foto of datosLocal" [src]="foto.foto | fotos"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" *ngFor="let datoPersonal of _futbolService.datosPersonales">
+        <ion-card fixed >
+          <ion-card-header>
+            <ion-card-title><h5>Datos Personales</h5></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="5" class="center"><ion-label>Persona a reservar</ion-label></ion-col>
+              <ion-col size="7">
+                  <ion-item [detail]="datoPersonal.nombre == '' || datoPersonal.apellido == ''">
+                    {{ datoPersonal.nombre }} {{ datoPersonal.apellido }}
+                  </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5" class="center"><ion-label>Cédula</ion-label></ion-col>
+              <ion-col size="7">
+                <ion-item [detail]="datoPersonal.cedula == ''">
+                  {{ datoPersonal.cedula }}
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5" class="center">Telf:</ion-col>
+              <ion-col size="7">
+                <ion-item [detail]="datoPersonal.telf == ''" (click)="datoPersonal.telf == '' ? modificarDatos() : null">
+                  {{ datoPersonal.telf }}
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <form [formGroup]="formularioReserva" (ngSubmit)="guardar($event)">
+  <ion-grid fixed >
+    <ion-row>
+      <ion-col size="12">
+        <ion-card *ngFor="let local of datosLocal">
+          <ion-card-header>
+            
+            <ion-card-title><h5>Datos del local</h5></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            
+            <ion-row>
+              <ion-col size="4"><ion-label>Ubicación</ion-label></ion-col>
+              <ion-col size="6">{{ local.ubicacion }} </ion-col>
+              <ion-col size="2">
+                <ion-button (click)="abrirUbicacion()">
+                  <ion-icon slot="icon-only" name="pin-sharp"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><ion-label>Local</ion-label></ion-col>
+              <ion-col size="8">
+                <ion-label>
+                  {{ local.nomLocal }}
+                </ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12"><ion-label>Día</ion-label></ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col size="12">
+                <ion-segment formControlName="diaFecha" scrollable  (ionChange)="cambioFecha($event)">
+                  <ion-segment-button  [value]="i" *ngFor="let fecha of diaSemana; let i = index">
+                    <ion-chip color="primary" mode="ios" outline="true">
+                      <ion-label>{{ fecha }} {{ fechaDia[i] }} {{ mesDia[i]}}</ion-label>              
+                    </ion-chip>
+                  </ion-segment-button>          
+                </ion-segment>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="errorDiaFecha">
+              <ion-col size="12" class="error">
+                El campo Día es obligatorio
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Hora</ion-col>
+              <ion-col size="6">Tiempo a jugar</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                  <ion-item>
+                    <ion-select formControlName="hora" (ionChange)="cambioHoratiempo($event)" placeholder="Hora">
+                      <ion-select-option disabled value="hora">hora..</ion-select-option>
+                      <ion-select-option *ngFor="let hora of horasGenerico" [value]="hora">{{hora}}</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item>
+                  <ion-select formControlName="tiempo" [value]="default"  placeholder="Tiempo">
+                    <ion-select-option disabled value="tiempo">Tiempo..</ion-select-option>
+                    <ion-select-option *ngFor="let hora of horasTiempoJugar" [value]="hora.value">{{ hora.value }} {{ hora.name }}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="error" *ngIf="errorHora" size="6">
+                El campo Hora es obligatorio
+              </ion-col>
+              <ion-col class="error" *ngIf="errorTiempo" size="6">
+                El campo tiempo es obligatorio
+              </ion-col>
+            </ion-row>
+            <!-- <ion-row>
+              <ion-col class="center" size="4">Tipo</ion-col>
+              <ion-col size="7">
+                  <ion-item>
+                    <ion-select value="peperoni" multiple="true" placeholder="Select Pizza">
+                      <ion-select-option value="peperoni">Cubierta</ion-select-option>
+                      <ion-select-option value="hawaii">Descubierta</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+              </ion-col>
+            </ion-row> -->
+            <ion-row>
+              <ion-col class="center" size="4">
+                  <ion-label>Cantidad</ion-label>
+              </ion-col>
+              <ion-col size="7">
+                  <ion-item>
+                    <ion-select formControlName="cantidad" placeholder="Seleccione una.." okText="Aceptar" cancelText="Cancelar">
+                      <ion-select-option disabled value="cantidad">Cantidad..</ion-select-option>
+                      <ion-select-option *ngFor="let i of canchasDisponibles" [value]="i">{{ i }}</ion-select-option>
+                    </ion-select>
+                    <!-- <ion-input formControlName="cantidad" type="number" value="1"></ion-input> -->
+                  </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="errorCantidad">
+              <ion-col size="4">
+              </ion-col>
+              <ion-col class="error" size="7">
+                El campo cantidad es obligatorio
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Observaciones (opcional)</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                  <ion-item>
+                    <ion-textarea formControlName="observaciones" rows="5" placeholder="Información extra que desea dar a conocer..."></ion-textarea>
+                  </ion-item>
+                </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button [disabled]="formularioReserva.invalid" type="submit" expand="full">
+          Reservar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="resetearFormulario()" color="danger" expand="block" >
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+</ion-content>

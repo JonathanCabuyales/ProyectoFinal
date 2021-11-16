@@ -1,0 +1,24 @@
+[
+    
+    {
+        "img": "/assets/img/calendario.png",
+        "titulo": "Visualizar las reservas",
+        "desc": "La aplicación le permite visualizar todas las reservas activas que loc clientes han hecho en su establecimiento."
+    },
+    {
+        "img": "/assets/img/mensaje.png",
+        "titulo": "Responder a los mensajes",
+        "desc": "La aplicación le permite responder mensajes a los usuarios que se comuniquen con el establecimiento."
+    },
+    {
+        "img": "/assets/img/encuesta.png",
+        "titulo": "Visualizar y responder comentarios",
+        "desc": "La aplicación le permite visualizar los comentarios que los clientes han hecho y responder a dichos comentarios."
+    },
+    {
+        "img": "/assets/img/prop/work-time.png",
+        "titulo": "OtrosServicios",
+        "desc": "La aplicación le permite realizar otros servicios como actualización de información, cancelación de reservas."
+    }
+    
+]

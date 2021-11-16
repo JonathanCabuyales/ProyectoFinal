@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="cliente"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reservas activas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-item>
+    <ion-label>Seleccione una fecha:</ion-label>
+    <ion-datetime [pickerOptions]="customPickerOptions" [value]="fechaBuscar"   placeholder="fecha" (ionChange)="BuscarFecha( $event )" [yearValues]="anioActual" [min]="fechaMin" display-format="YYYY-MM-DD"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Selecciona un local</ion-label>
+    <ion-select placeholder="Selecciona un local" [interfaceOptions]="customActionSheetOptions" interface="action-sheet" (ionChange)="cambioLocal( $event )">
+        <ion-select-option value="t">Todos</ion-select-option>
+      <ion-select-option *ngFor="let nombre of (selectNombre | historiaReserva)" [value]="nombre">{{ nombre }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <app-reservas-activas-re [historialReservas]="historialReservas" [fechaBuscar]="fechaBuscar"></app-reservas-activas-re>
+  
+
+</ion-content>

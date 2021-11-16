@@ -1,0 +1,93 @@
+.img-center{
+    text-align: center;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+}
+
+.label-center{
+  text-align: center;
+  color: grey;
+  
+  font-size: 25px;
+
+}
+
+ion-item , .small{
+  color: grey;
+  font-size: 15px;
+  
+}
+ion-item small{
+  font-size: 20px;
+  
+}
+
+.small{
+  text-align: center;
+  margin-bottom: 30px;
+  
+}
+
+.buttons-align{
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  display: block;
+}
+
+.rojo{
+  color: var( --ion-color-login);
+  text-align: center;
+  font-size: 20px;
+}
+
+.passwForgot{
+  text-align: center;
+  color: var(--ion-color-primary);
+}
+
+.login{
+  height: 50px;
+  font-size: 20px;
+  text-transform: capitalize;
+  --background: var( --ion-color-tertiary ) !important;
+}
+
+.logo-f{
+  --background: var( --ion-color-facebook ) !important;
+
+  --border-radius: 25px !important;
+}
+
+.logo-f, .logo-t{
+  height: 40px;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  
+}
+
+.logo-f ion-icon, .logo-t ion-icon{
+  font-size: 25px;
+}
+
+.logo-t{
+  --background: var( --ion-color-twitter) !important;
+}
+
+.formLabel{
+  color: var( --ion-color-tertiary);
+  font-size: 18px;
+}
+
+.icono{
+  font-size: 40px;
+  /*  es para outline =>--ionicon-stroke-width: 100px; */
+}
+

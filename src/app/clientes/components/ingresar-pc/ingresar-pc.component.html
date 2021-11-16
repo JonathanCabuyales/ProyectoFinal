@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Confirmar</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cerrarModal()">
+                <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    
+    <ion-item>
+        <ion-label>Ingrese su contraseña anterior por favor para continuar</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-input type="password" placeholder="contraseña" name="contrasenia" #idpass></ion-input>
+    </ion-item>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button (click)="pass(idpass.value)"  expand="block" fill="clear" shape="round">
+                    Confirmar
+                </ion-button>
+            </ion-col>
+            <ion-col size="6">
+
+                <ion-button color="danger" expand="block" fill="clear" shape="round">
+                    Cancelar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

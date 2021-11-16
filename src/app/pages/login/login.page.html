@@ -1,0 +1,58 @@
+<ion-content fullscreen="true" class="ion-padding">
+  <ion-list lines="none">
+      
+      <ion-item>
+        <ion-img class="img-center" src="/assets/icon/favicon.png"></ion-img>
+      </ion-item>
+    <ion-item>
+      <ion-label class="ion-padding-top" class="label-center small">FutbolInn</ion-label>
+    </ion-item>
+    <ion-item class="ion-padding-top">
+      <small class="small">Bienvenido, por favor inicie sesion</small>
+    </ion-item>
+    <ion-item color="danger" *ngIf="errorCredenciales" lines="none">
+      <small color="danger">{{ errnoCorreo }}</small>
+    </ion-item>
+    <form [formGroup]="formularioLogin" (ngSubmit)="loginAcceder()">
+      <ion-item>
+        <ion-icon slot="start" class="icono" name="mail"></ion-icon>
+        <ion-label position="stacked" class="formLabel">Correo</ion-label>
+        <ion-input inputmode="email" type="text" (ionInput)="error()" placeholder="ejemplo@ejemplo.com" formControlName="correo"></ion-input>
+      </ion-item>
+      <div class="">
+        <small *ngIf="errorCorreo" color="danger">El correo es obligatorio</small>
+        <small *ngIf="correNoValido" color="danger">El correo no es valido</small>
+        
+      </div>
+      <ion-item>
+        <ion-icon slot="start" class="icono" name="lock-closed"></ion-icon>
+        <ion-label position="stacked" class="formLabel">Contraseña</ion-label>
+        <ion-input type="password" (ionInput)="error()" placeholder="••••••••••" formControlName="passw"></ion-input>
+      </ion-item>
+      <div>
+        <small *ngIf="errorPassw" color="danger">El campo contraseña es obligatorio</small>
+        <small *ngIf="errorNoPassw" color="danger">La contraseña debe tener al menos 8 carácteres</small>
+      </div>
+      <ion-item>
+        <ion-label>Recordarme</ion-label>
+        <ion-checkbox formControlName="recordar" slot="start"></ion-checkbox>
+        
+      </ion-item>
+
+      <ion-button type="submit"  class="login" expand="full" fill="solid" shape="round">
+        Acceder
+      </ion-button>
+    </form>
+    <ion-item>
+      <ion-label routerLink="/password-recovery" class="passwForgot">¿Olvido su contraseña?</ion-label>
+    </ion-item>
+    <ion-item class="ion-padding-top">
+      <ion-label class="rojo" routerLink="/register">¿Crear una cuenta?</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-button routerLink="/notifications" expand="block" fill="clear" shape="round">
+    abrir
+  </ion-button> -->
+
+</ion-content>

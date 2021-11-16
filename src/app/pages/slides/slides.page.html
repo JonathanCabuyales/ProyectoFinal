@@ -1,0 +1,29 @@
+<ion-content fullscreen="true" color="light">
+  <ion-slides class="slide-full"  mode="ios" pager="ios" scrollbar="ios">
+    <ion-slide *ngFor="let slide of slidesData | async">
+      <ion-card mode="ios">
+        <ion-img class="slide-img" [src]="slide.img"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{ slide.titulo }}</ion-card-subtitle>
+          <!-- <ion-card-title>Awesome Title</ion-card-title> -->
+        </ion-card-header>
+        <ion-card-content>
+          {{ slide.desc }}
+        </ion-card-content>
+      </ion-card>    
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-img class="slide-img" src="/assets/img/listo.jpg"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle class="ion-padding-top subtitle">Todo esta listo para usar.</ion-card-subtitle>
+          
+        </ion-card-header>
+        <ion-card-content class="listo">
+          <p>Presiona <a (click)="omitirPresentaciones()">aquí</a> para continuar</p>
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

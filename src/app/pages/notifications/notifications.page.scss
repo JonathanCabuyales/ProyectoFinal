@@ -1,0 +1,26 @@
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+}
+.vista-previa {
+    width: 100px !important;
+    height: 100px !important;
+    border: 1px solid red;
+}
+.vista-previa > ion-icon{
+    font-size: 34px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.vista-previa > ion-img{
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.boton-subir{
+    display: block;
+}
+
+

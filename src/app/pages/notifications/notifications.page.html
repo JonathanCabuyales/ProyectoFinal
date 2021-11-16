@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-button (click)="crearNotificacion()" expand="block" fill="clear" shape="round">
+    notificacion
+  </ion-button>
+  <ion-button (click)="verificarNotificacion()" expand="block" fill="clear" shape="round">
+    verfificar notificacion
+  </ion-button> -->
+  <ion-button (click)="tomarFotos()" expand="block" fill="clear" shape="round">
+    Tomar Fotos
+  </ion-button>
+  
+  
+  <ion-img id="imagen" [src]="imagenes"></ion-img>
+  
+  
+  <ion-button (click)="cargarImagenes()" expand="block" fill="clear" shape="round">
+    Cargar imagenes
+  </ion-button>
+
+  <ion-avatar>
+    <ion-img [src]="cargarimagenFirebase"></ion-img>
+  </ion-avatar>
+
+
+  
+  <div class="contenedor">
+    <div class="vista-previa" *ngFor="let foto of fotos; let i = index">
+      <ion-icon (click)="eliminarFoto(i)" slot="icon-only" name="close-circle-outline"></ion-icon>
+      <ion-img  [src]="foto.webPath"></ion-img>
+    </div>
+  </div>
+  <div>
+    <ion-button (click)="cargarImagebes()" expand="block" fill="clear" shape="round">
+      Subir imagenes
+    </ion-button>
+  </div>
+  
+</ion-content>

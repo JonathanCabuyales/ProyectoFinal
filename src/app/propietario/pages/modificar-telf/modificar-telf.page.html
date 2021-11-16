@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modificar Telf</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerraModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Teléfonos</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Celular</ion-label>
+    <ion-input type="number" placeholder="celular" [value]="telfs.celular" #idCelular></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Convencional</ion-label>
+    <ion-input type="text" enterkeyhint="done" placeholder="convencional" #idconvencional [value]="telfs.convencional"></ion-input>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="guardar(idCelular, idconvencional)" expand="block" shape="round">
+          Guardar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="danger" (click)="cancelar()" expand="block" shape="round">
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

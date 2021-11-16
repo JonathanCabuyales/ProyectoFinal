@@ -1,0 +1,17 @@
+<ion-card *ngIf="!redes.redes">
+  <ion-card-header>
+    <ion-thumbnail>
+      <ion-img class="img" src="/assets/img/no-redes-sociales.png"></ion-img>
+    </ion-thumbnail>
+  </ion-card-header>
+  <ion-card-content>
+    El establecimiento no dispone de redes.
+  </ion-card-content>
+</ion-card>
+
+<ion-list *ngIf="redes.redes">
+  <ion-item *ngFor="let r of redes.red" (click)="verRed(r.value)">
+    <ion-icon [color]="r.color" slot="start" [name]="r.icon"></ion-icon>
+    <p >Visitar <ion-label [color]="r.color">{{ r.name }}</ion-label> </p>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Responder comnetarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        
+        <ion-card-title>{{comentario.dataInfo.nomUser}}</ion-card-title>
+        <star-rating [value]="comentario.comentarios.comentUser.valorCalificacion" [totalstars]="5" checkedcolor="gold" uncheckedcolor="white" [readonly]="true" size="25px"></star-rating>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{comentario.comentarios.comentUser.comentario}}
+      <p>{{ comentario.comentarios.comentUser.fecha }}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Comentario</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="respuestaComent">
+        <ion-item>
+          <ion-textarea formControlName="comentario" placeholder="agregar un comentario"></ion-textarea>
+        </ion-item>
+        <p *ngIf="mesajeBool" class="rojo" color="danger">{{ mensaje }}</p>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6" class="end">
+              <ion-button color="primary" (click)="guardar(respuestaComent)">
+                <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6" >
+              <ion-button color="danger" (click)="cancelar()">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

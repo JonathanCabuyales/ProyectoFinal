@@ -1,0 +1,29 @@
+[
+    
+    
+    {
+        "tab"     : "pricipal-reservas",
+        "iconName": "calendar-outline",
+        "nombre"  : "Reservas"
+    },
+    {
+        "tab"     : "informacion-cancha",
+        "iconName": "information-circle-outline",
+        "nombre"  : "Informacion"
+    },
+    {
+        "tab"     : "mensajes-prop",
+        "iconName": "send-outline",
+        "nombre"  : "Mensaje"
+    },
+    {
+        "tab"     : "comentarios-prop",
+        "iconName": "laptop-outline",
+        "nombre"  : "Comentarios"
+    },
+    {
+        "tab"     : "perfil-user",
+        "iconName": "person-circle-outline",
+        "nombre"  : "Perfil"
+    }
+]

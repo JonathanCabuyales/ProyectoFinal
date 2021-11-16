@@ -1,0 +1,33 @@
+[
+    
+    {
+        "icon": "mail",
+        "name": "Mensajes",
+        "redirecTo": "/tabs-propietario/mensajes-prop"
+    },
+    {
+        "icon": "calendar",
+        "name": "Reservas-activas",
+        "redirecTo": "/tabs-propietario/pricipal-reservas"
+    },
+    {
+        "icon": "time",
+        "name": "Historial reservas",
+        "redirecTo": "historial"
+    },
+    {
+        "icon": "file-tray-full",
+        "name": "Comentarios",
+        "redirecTo": "/tabs-propietario/comentarios-prop"
+    },
+    {
+        "icon": "notifications",
+        "name": "Notificaciones",
+        "redirecTo": "/notificacion-p"
+    },
+    {
+        "icon":"person-circle-outline",
+        "name": "Perfil",
+        "redirecTo": "/tabs-propietario/perfil-user"
+    }
+]

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Información reserva cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerraModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let datos of reservas; let i=index">
+  <ion-card color="primary" class="ion-padding-bottom">
+    <ion-card-header>
+      <ion-avatar class="img-center" *ngFor="let foto of datos.datosUser">
+        <img  [src]="foto.foto | fotos" />
+      </ion-avatar>
+      <ion-label class="nombre">{{ datos.datosUser[0].nombre }} {{ datos.datosUser[0].apellido }}</ion-label>
+    </ion-card-header>
+  </ion-card>
+  <ion-item>
+    <ion-label>Datos del cliente</ion-label>
+  </ion-item>
+  <ion-grid fixed class="ion-padding-bottom">
+    <ion-row>
+      <ion-col size="6">Cédula:</ion-col>
+      <ion-col size="6">{{ datos.datosUser[0].cedula }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">correo:</ion-col>
+      <ion-col size="6">{{ datos.datosUser[0].correo }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">Telf:</ion-col>
+      <ion-col size="6">{{ datos.datosUser[0].telf }}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item>
+    <ion-label>Datos Reserva</ion-label>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">Día: </ion-col>
+      <ion-col size="6">{{ datos.data.dia | titlecase}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">Hora: </ion-col>
+      <ion-col size="6">{{ datos.data.horaInicio }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">Canchas: </ion-col>
+      <ion-col size="6">{{ datos.data.cantidad }}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">Observaciones: </ion-col>
+      
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">{{ datos.data.observaciones }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

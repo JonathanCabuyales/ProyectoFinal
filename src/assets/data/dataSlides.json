@@ -1,0 +1,23 @@
+[
+    {
+        "img": "/assets/img/maps.png",
+        "titulo": "Visualización y reservas de canchas",
+        "desc": "La aplicación le permite visualizar, buscar y reservar una cancha en un lugar específico a través de un mapa"
+    },
+    {
+        "img": "/assets/img/calendario.png",
+        "titulo": "Visualizar las reservas",
+        "desc": "La aplicación le permite visualizar tanto las reservas activas de cada una de las canchas en las que desee utilziar para elegir un horario que se adapte"
+    },
+    {
+        "img": "/assets/img/mensaje.png",
+        "titulo": "Contactar con el propietario",
+        "desc": "La aplicación le permite comunicarse con el propietario a través de mensajes permitiendole conocer si ofrece otros servicios el establecimiento."
+    },
+    {
+        "img": "/assets/img/encuesta.png",
+        "titulo": "Formulario de comentarios",
+        "desc": "La aplicación le permite dejar una calificacion asi como tambien un comentario del establecimiento que ha utilziado."
+    }
+    
+]

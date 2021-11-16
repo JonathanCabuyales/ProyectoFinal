@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modificar Comentario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label color="primary" position="floating">Local</ion-label>
+    <ion-input type="text" [value]="_coment.modificarComentario.dataInfo.nomLocal" disabled ></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label position="floating">Description</ion-label>
+    <ion-textarea rows="6" #inputText [value]="_coment.modificarComentario.comentarios.comentResp.comentario" wrap></ion-textarea>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" style="text-align: end;">
+        <ion-button  (click)="modificar(_coment.modificarComentario.comentarios.comentUser, inputText.value)">
+          <ion-icon slot="icon-only" name="pencil"></ion-icon>
+          Modificar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="danger" (click)="cancelar()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

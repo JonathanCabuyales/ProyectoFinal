@@ -1,0 +1,28 @@
+[
+    
+    {
+        "tab"     : "ubicaciones",
+        "iconName": "map-outline",
+        "nombre"  : "Ubicaciones"
+    },
+    {
+        "tab"     : "historial-reservas",
+        "iconName": "time-outline",
+        "nombre"  : "Historial"
+    },
+    {
+        "tab"     : "reservas-activas-cliente",
+        "iconName": "calendar-outline",
+        "nombre"  : "Reservas activas"
+    },
+    {
+        "tab"     : "mensajes",
+        "iconName": "send-outline",
+        "nombre"  : "Mensaje"
+    },
+    {
+        "tab"     : "perfil-user",
+        "iconName": "person-circle-outline",
+        "nombre"  : "Perfil"
+    }
+]

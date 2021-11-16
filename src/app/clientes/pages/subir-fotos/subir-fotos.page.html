@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>Subir fotos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="abrirGaleriaCamara()" expand="block" fill="clear" shape="round">
+    {{ fotos.length === 1 ? 'Cambiar foto' : 'Seleccionar foto'}}
+  </ion-button>
+  <ion-button (click)="abrirCamara()" expand="block" fill="clear" shape="round">
+    {{ fotos.length === 1 ? 'Tomar nueva foto' : 'Tomar foto'}}
+  </ion-button>
+  <ion-item *ngIf="fotos.length > 0">
+    <ion-label>Vista Previa</ion-label>
+  </ion-item>
+
+  <div class="contenedor">
+    <div class="vista-previa" *ngFor="let foto of fotos; let i = index">
+      <ion-icon (click)="eliminarFoto(i)" slot="icon-only" name="close-circle-outline"></ion-icon>
+      <ion-img  [src]="foto.webPath"></ion-img>
+    </div>
+  </div>
+  <div *ngIf="fotos.length > 0" class="ion-padding-top">
+    <ion-progress-bar type="determinate" [value]="progreso" color="primary"></ion-progress-bar>
+  </div>
+  <div *ngIf="fotos.length > 0">
+    <ion-button (click)="cargarImagenes()" expand="block" fill="clear" shape="round">
+      Actualizar foto
+    </ion-button>
+  </div>
+</ion-content>

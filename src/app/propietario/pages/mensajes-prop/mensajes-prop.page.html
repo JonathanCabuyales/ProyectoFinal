@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="abrirMenu()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mensajes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="search()">
+        <ion-icon slot="icon-only" [name]="!abrirSearch ? 'search-outline' : 'close-circle-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-item *ngIf="abrirSearch">
+    <ion-searchbar id="buscarTexto" [value]="nombreLocalSearch" [animated]="true" cancelButtonIcon="close-circle-outline" placeholder="Buscar establecimiento" inputmode="text" type="search" (ionClear)="cancelado()" (ionInput)="onSearchChange($event)" [debounce]="250" showCancelButton="focus"></ion-searchbar>
+  </ion-item>
+  <!-- <div *ngIf="ultimoMensaje.length > 0"> -->
+    <ng-container *ngFor="let mensaje of (chats)">
+
+      <ion-item *ngFor="let msm of (mensaje.chat.mensajes | ultimoMensaje)" detail (click)="verMensaje(mensaje.chat)">
+        <ion-avatar>
+          <img [src]="mensaje.fotos |fotos" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ mensaje.chat.nombreFrom }}</h2>
+          <p>{{msm.mensaje |slice:0:10}}.........</p>
+          <p>{{msm.fecha}}</p>
+        </ion-label>
+        <ion-note slot="end">
+          {{ msm.hora }}
+        </ion-note>
+      </ion-item>
+    </ng-container>
+  <!-- </div> -->
+  
+
+</ion-content>

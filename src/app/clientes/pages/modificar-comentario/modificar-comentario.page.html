@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar comentario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          {{ _cometario.modificarComentario.dataInfo.nomLocal }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="3">Usuario:</ion-col>
+        <ion-col size="9">{{ _cometario.modificarComentario.dataInfo.nomUser }}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">Calificación</ion-col>
+        <ion-col size="8">
+          <star-rating [value]="_cometario.modificarComentario.comentarios.comentUser.valorCalificacion" [totalstars]="5" checkedcolor="gold" uncheckedcolor="gray" size="27px" (rate)="calificar($event)"></star-rating>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-item>
+  <ion-item>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          Comentario
+        </ion-col>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-textarea [value]="_cometario.modificarComentario.comentarios.comentUser.comentario" rows="8" #comentarioId  placeholder="Comentario......." enterkeyhint="done" inputmode="text"></ion-textarea>
+        </ion-col>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button [disabled]="comentarioId.value === '' || valorRating === 0" (click)="actualizarComent( comentarioId.value )"  expand="block" shape="round">
+          Enviar comentario
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+
+        <ion-button color="danger"  expand="block" shape="round">
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

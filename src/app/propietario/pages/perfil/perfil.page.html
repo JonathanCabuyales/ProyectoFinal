@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="abrirMenu()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Datos Personales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8" class="img-center" >
+            <ion-avatar *ngFor="let datos of datosPersonales">
+              <img  [src]="datos.foto | fotos" />
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="4">
+            
+            <ion-icon (click)="subirFotos()" class="icono" name="image-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-label *ngFor="let datos of datosPersonales" class="nombre">{{ datos.nombre }} {{ datos.apellido }}</ion-label>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid fixed *ngFor="let datos of  datosPersonales">
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label>Cédula: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item>
+          <ion-label>{{ datos.cedula }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item >
+          <ion-label>Nombre: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item detail (click)="editField('Nombre', datos.nombre)">
+          <ion-label>{{ datos.nombre }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label>Apellido: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item detail (click)="editField('Apellido', datos.apellido)">
+          <ion-label>{{ datos.apellido }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label>Correo: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item detail (click)="editField('Correo', datos.correo)">
+          <ion-label>{{ datos.correo }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label>Contraseña: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item detail (click)="editField('Contrasenia', datos.contrasenia)">
+          <ion-label>{{ datos.contrasenia.length > 0 ? '***********' : '' }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label>Telf: </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item detail (click)="editField('Telf', datos.telf)">
+          <ion-label>{{ datos.telf }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+</ion-content>

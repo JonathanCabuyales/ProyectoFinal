@@ -1,0 +1,42 @@
+[
+    {
+        "icon": "map",
+        "name": "Ubicaciones",
+        "redirecTo": "/tabs-cliente/ubicaciones"
+    },
+    {
+        "icon": "mail",
+        "name": "Mensajes",
+        "redirecTo": "/tabs-cliente/mensajes"
+    },
+    {
+        "icon": "calendar",
+        "name": "Reservas activas",
+        "redirecTo": "/tabs-cliente/reservas-activas-cliente"
+    },
+    {
+        "icon": "calendar",
+        "name": "Historial reservas",
+        "redirecTo": "/tabs-cliente/historial-reservas"
+    },
+    {
+        "icon": "file-tray-full",
+        "name": "Comentarios",
+        "redirecTo": "/comentarios-cliente"
+    },
+    {
+        "icon": "notifications",
+        "name": "Notificaciones",
+        "redirecTo": "/notificaciones"
+    },
+    {
+        "icon":"heart",
+        "name": "Favoritos",
+        "redirecTo": "/favoritos"
+    },
+    {
+        "icon":"person-circle-outline",
+        "name": "Perfil",
+        "redirecTo": "/tabs-cliente/perfil-user"
+    }
+]

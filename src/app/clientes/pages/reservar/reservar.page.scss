@@ -1,0 +1,36 @@
+ion-select, ion-select-option{
+    text-align: left;
+    margin-left: 0;
+}
+
+ion-button{
+    text-transform: capitalize;
+}
+
+h5{
+    font-weight: 600;
+    font-size: 18px;
+}
+ion-icon{
+    font-size: 25px;
+}
+ion-col{
+    margin-bottom: 5px;
+}
+
+.center{
+    display: flex;
+    
+    align-items: center;
+}
+
+.error{
+    color: red;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.img{
+    width: 100% !important;
+    height: 250px !important;
+}

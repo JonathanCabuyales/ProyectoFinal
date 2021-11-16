@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <form [formGroup]="formularioRegistro" (ngSubmit)="guardar(formularioRegistro)">
+      <ion-item>
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label position="floating" class="form-label" >Nombre</ion-label>
+        <ion-input type="text" formControlName="nombre" [clearInput]="true" enterkeyhint="next" inputmode="text" ></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="NombreError" color="danger">El campo Nombre es obligatorio</small>
+        <small *ngIf="cantidadNombre" color="danger">Mínimo de carateres 5</small>
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label position="floating" class="form-label" >Apellido</ion-label>
+        <ion-input type="text" formControlName="apellido" [clearInput]="true" enterkeyhint="next" inputmode="text" ></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="ApellidoError" color="danger">El campo Apellido es obligatorio</small>
+        <small *ngIf="apellidoCantidad" color="danger">Mínimo de caracteres 5</small>
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="id-card"></ion-icon>
+        <ion-label position="floating" class="form-label" >Cedula</ion-label>
+        <ion-input type="text" formControlName="cedula" (ionChange)="cedulaIgual()" [clearInput]="true" enterkeyhint="next" inputmode="numeric"></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="CedulaError" color="danger">El campo Cédula es obligatorio</small>
+        <small *ngIf="cantidadCedula" color="danger">Debe ingresar al menos 10 digitos</small>
+        <!-- <small *ngIf="cedulasVerificadas" color="danger">La cédula es invalida</small> -->
+      </div>
+      <div class="cedulaIgual">
+        <small *ngIf="cedulasVerificadas">La cédula es invalida</small>
+        <small *ngIf="cantidadCedulaMax">Debe tener máximo 10 digitos</small>
+        <small *ngIf="cedulasIguales">La cédula ya se encuentra registrado</small>
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="call"></ion-icon>
+        <ion-label position="floating" class="form-label" >Teléfono celular</ion-label>
+        <ion-input type="text" formControlName="telf"  [clearInput]="true" enterkeyhint="next" inputmode="tel"></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="telfError" color="danger">El campo cédula es obligatorio</small>
+        <small *ngIf="cantidadTelf" color="danger">Debe ingresar al menos 10 digitos</small>
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="mail"></ion-icon>
+        <ion-label position="floating" class="form-label" >Correo</ion-label>
+        <ion-input type="text" formControlName="correo" [clearInput]="true" enterkeyhint="next" inputmode="email"></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="CorreoError" color="danger">El campo es obligatorio</small>
+        <small *ngIf="patterCorreo" color="danger">El correo ingresado no es valido</small>        
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="lock-closed"></ion-icon>
+        <ion-label position="floating" class="form-label" >Contraseña</ion-label>
+        <ion-input type="password" formControlName="passw" [clearOnEdit]="false" [clearInput]="true" enterkeyhint="next"></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="PasswError" color="danger">El campo Contraseña es obligatorio</small>
+        <small *ngIf="cantidadPassw" color="danger">Debe ingresar al menos 10 caracteres</small>
+        
+      </div>
+      <ion-item>
+        <ion-icon slot="start" name="lock-closed"></ion-icon>
+        <ion-label position="floating" class="form-label" >Confirmar contraseña</ion-label>
+        <ion-input type="password" formControlName="confpassw" [clearOnEdit]="false" [clearInput]="true" enterkeyhint="done"></ion-input>
+      </ion-item>
+      <div class="validadorCorreo">
+        <small *ngIf="PasswConfError" color="danger">El campo Verificar contraseña es obligatorio</small>
+        <small *ngIf="cantidadConfPassw" color="danger">Debe ingresar al menos 10 caracteres</small>
+        <small *ngIf="compararContrasenia" color="danger">Las contraseñas no son iguales</small>
+        <!-- <small *ngIf="igualpassconf" color="danger">Las contraseñas no son iguales</small> -->
+      </div>
+      <div class="successPass">
+        <!-- <small  *ngIf="igualpassconf && igualpassw">Las contraseñas son iguales</small> -->
+      </div>
+      <!-- <ion-item lines="none" class="ion-padding-bottom">
+        <ion-label class="ion-text-wrap terms">De acuerdo con lo términos de servicio y privacidad</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox >
+      </ion-item> -->
+      <ion-button [disabled]="cedulasIguales || contraseniasIguales || cedulasVerificadas || formularioRegistro.invalid" type="submit" expand="block" class="register" shape="round">
+        Continuar
+      </ion-button>
+    </form>
+
+    <ion-item lines="none" class="ion-padding-top">
+      <ion-label class="log-in">¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesion</a></ion-label>
+      
+    </ion-item>
+  </ion-list>
+
+</ion-content>

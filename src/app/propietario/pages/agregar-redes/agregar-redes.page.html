@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar nueva red</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form [formGroup]="redesSocialesForm">
+    
+    <ion-grid fixed formArrayName="redesSocialesNuevas" *ngFor="let nueva of formArrayRed.controls; let i = index">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Seleccione una red social</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-select [interfaceOptions]="customOptions" interface="action-sheet" placeholder="Seleccione..." (ionChange)="cambiar($event)">
+            <ion-select-option *ngFor="let red of redesDefault" [value]="red.name">{{ red.name | titlecase }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <div>
+        <ion-row>
+          <ion-col size="12">
+            <ion-label>Usuario:</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-input type="text" class="mover nuevo" [value]="valorUrl" disabled></ion-input>
+            
+          </ion-col>
+          <ion-col size="6">
+            <ion-input type="text" class="mover" [value]="quitar" [formControlName]="i" [placeholder]="placeHolder"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col size="6" class="boton">
+          <ion-button (click)="agregar()" fill="solid" shape="round">
+            <ion-icon  slot="icon-only" name="save-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="danger"  (click)="cancelar(i)"  fill="solid" shape="round">
+            <ion-icon  slot="icon-only" name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="agregarRed()" [disabled]="deshabilitar">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+
+</ion-content>

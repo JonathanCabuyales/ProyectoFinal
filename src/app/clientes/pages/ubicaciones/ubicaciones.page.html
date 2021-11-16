@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="cliente"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ubicaciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirSearch()">
+        <ion-icon slot="icon-only" [name]="searchAbrir ? 'close-circle-outline' : 'search-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <!-- <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="getPisitionACtual()" size="small">
+      <ion-icon name="location-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <ion-item *ngIf="searchAbrir">
+    <ion-searchbar id="buscarTexto" [value]="nombreLocalSearch" [animated]="true" cancelButtonIcon="close-circle-outline" placeholder="Buscar establecimiento" inputmode="text" type="search"  (ionCancel)="cancelado()" (ionClear)="limpiar()" (ionInput)="mostrarBusquedaLugaresInput($event)" [debounce]="250" (ionFocus)="limpiarTexto()" showCancelButton="focus"></ion-searchbar>
+    <!-- <input list="buscarTexto">
+    <datalist id="buscarTexto">
+      <option value="probando">probando</option>
+    </datalist> -->
+  </ion-item>
+  <ion-spinner *ngIf="spinner" class="spinner" name="bubbles"></ion-spinner>
+  <ion-virtual-scroll *ngIf="buscados.length > 0" [items]="buscados">
+      <ion-item *virtualItem="let buscado" (click)="buscarEstablecimiento(buscado.id)">
+        <ion-label>{{ buscado.data }}</ion-label>
+      </ion-item>
+  </ion-virtual-scroll>
+
+  
+  <div id="mapa"></div>
+
+  
+</ion-content>

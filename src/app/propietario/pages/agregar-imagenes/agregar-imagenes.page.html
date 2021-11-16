@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleccionar imagenes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="seleccionarImg()" expand="block" fill="clear" shape="round">
+    {{ fotos.length === 3 ? 'Cambiar Imagenes': 'Seleccionar imagenes'}}
+  </ion-button>
+  <ng-container>
+    <ion-item *ngIf="fotos.length > 0">
+      <ion-label>Vista previa</ion-label>
+      <ion-note *ngIf="fotos.length === 3" color="danger">Puede seleccionar un máximo de 3 fotos</ion-note><br/>
+      <ion-note>{{ fotos.length }}/3</ion-note>
+    </ion-item>
+  </ng-container>
+  <div class="contenedor" *ngIf="fotos.length > 0">
+    <div class="vista-previa" *ngFor="let foto of fotos; let i = index">
+      <ion-icon (click)="eliminarFoto(i)" slot="icon-only" name="close-circle-outline"></ion-icon>
+      <ion-img  [src]="foto.webPath"></ion-img>
+      <ion-progress-bar class="ion-padding-top" type="determinate" [value]="progreso" [color]="colores"></ion-progress-bar>
+    </div>
+  </div>
+  <!-- <div *ngIf="fotos.length > 0">
+  </div> -->
+  <div *ngIf="fotos.length > 0" class="ion-padding-top">
+    <ion-button (click)="cargarImagenes()" expand="block" fill="clear" shape="round">
+      Actualizar fotos
+    </ion-button>
+  </div>
+
+  <!-- <ion-button (click)="cargarImagenes()" expand="block" fill="clear" shape="round">
+    probar
+  </ion-button> -->
+  
+</ion-content>

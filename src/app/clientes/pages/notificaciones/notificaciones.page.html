@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs-cliente/ubicaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    
+    <ion-item  *ngFor="let notify of _noti.notificacionesArr" (click)="verNotificaciones(notify.id)" detail>
+      <ion-label>
+        <h2>{{ notify.title }}</h2>
+        <p>{{ notify.body }}</p>
+        <p>{{ notify.data.mensajes |slice:0:15}} ....</p>
+        
+      </ion-label>
+      <ion-note>
+        {{ notify.fecha | date}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

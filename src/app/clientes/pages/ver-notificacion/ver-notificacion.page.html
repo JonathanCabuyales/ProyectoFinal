@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Reservación cancelada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-card *ngFor="let cancel of canceladas">
+    <ion-card-header>
+      <ion-card-title>Reserva Cancelada</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+      <p>Reserva realizada para el día: <b>{{ cancel.data[0].fechaTiempoReserva | date}}</b> para el horario de <b>{{ cancel.data[0].horaInicio }}</b> a <b>{{ cancel.data[0].horaFin }}</b></p>
+      <p>En el establecimiento <b>{{ cancel.notifi.data.nombre }}</b></p>
+      <p>Ha sido cancelada <b>{{ cancel.notifi.body }}</b>, el día <b>{{ cancel.data[0].cancelacion.fecha | date }}</b> a las <b> {{ cancel.data[0].cancelacion.fecha | fecha}}</b></p>
+      <p>Por motivo de <b>{{ cancel.data[0].cancelacion.motivo}}</b></p>
+    </ion-card-content>
+  </ion-card>
+  
+  
+
+</ion-content>

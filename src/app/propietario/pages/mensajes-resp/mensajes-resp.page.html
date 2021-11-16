@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs-propietario/mensajes-prop"></ion-back-button>
+      <ion-avatar >
+        <img [src]="fotos[0] | fotos" />
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title *ngFor="let n of nombreUser">{{ n }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div id="app-msj" class="contenido-chat" >
+    <div *ngFor="let chat of (_chat.chats | mensajes)" [ngClass]="{'ion-text-end': chat.from === idDocLocal}">
+      
+      <ion-badge  [color]=" chat.from === idDocLocal ? 'primary': 'success'" mode="ios">{{ chat.mensaje }}</ion-badge>
+      
+    </div>
+    
+  </div>
+
+</ion-content >
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid fixed>
+    <form [formGroup]="formMensaje" (ngSubmit)="addChat( formMensaje )">
+        <ion-row>
+          <ion-col size="10">
+
+            <ion-input type="text" placeholder="Mensaje..." name="inputMsj" id="inputMsj" formControlName="mensaje"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button type="submit" fill="clear">
+              <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" placeholder="Mensaje..." name="inputMsj" #inputMsj></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="addChat( inputMsj.value )">
+        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer> -->

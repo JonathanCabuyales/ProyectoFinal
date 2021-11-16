@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-item *ngFor="let horarios of horarioSemana.semana.dias ">
+    <ion-label>{{ horarios }}</ion-label>
+    <ion-label>{{ horarioSemana.semana.hora }}</ion-label>
+  </ion-item>
+  <ion-item *ngFor="let horarios of horarioSemana.finSemana.dias ">
+    <ion-label>{{ horarios }}</ion-label>
+    <ion-label>{{ horarioSemana.finSemana.hora }}</ion-label>
+  </ion-item>
+</ion-content>

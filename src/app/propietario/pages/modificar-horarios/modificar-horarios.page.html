@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modificar Horarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>
+  <ion-label>Horarios</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Semana</ion-label>
+  <ion-input type="text" placeholder="horario semana" #horaSemana [value]="horarios.semana.hora"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Fin de Semana</ion-label>
+  <ion-input type="text" placeholder="horario fin de semana" #horafinSemana [value]="horarios.finSemana.hora"></ion-input>
+</ion-item>
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="guardar(horaSemana, horafinSemana)" expand="block">
+        <ion-icon slot="start" name="pencil-outline"></ion-icon>
+        Modificar
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="cancelar()" expand="block">
+        <ion-icon slot="start" name="close"></ion-icon>
+        Cancelar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

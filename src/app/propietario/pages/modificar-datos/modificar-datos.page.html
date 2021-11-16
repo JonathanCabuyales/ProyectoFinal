@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Campo {{ campoEditar }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>{{ campoEditar }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [name]="campoEditar" rows="5" wrap="soft" inputmode="text" placeholder="modificar" #campoModificar [value]="campoValor"></ion-textarea>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="primary" (click)="modificar(campoModificar)" expand="block"  shape="round">
+          Modificar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="danger" expand="block"  shape="round">
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

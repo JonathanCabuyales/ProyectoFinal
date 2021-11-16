@@ -1,0 +1,65 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs-cliente/ubicaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reservas Activas</ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  
+  <ion-item [disabled]="reservasLocal.length === 0">
+    <ion-label>Fecha</ion-label>
+    <ion-datetime (ionChange)="getReservasPorFecha( $event )" [value]="fechaBuscar" [min]="fechaMin" yearValues="2021"
+    [dayShortNames]="dayCortos"
+    displayFormat="YYYY-MM-DD"
+    ></ion-datetime>
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4">Total reservas:</ion-col>
+      <ion-col size="2">{{ reservasLocal.length }}</ion-col>
+      <ion-col size="3">Día:</ion-col>
+      <ion-col size="3">{{ fechaBuscar }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="reservasLocal.length > 0">
+
+    <ng-container fixed >
+  
+          <ion-item *ngFor="let r of reservasLocal">
+            <ion-label>
+              <h2>Día: {{r.dia | titlecase}}</h2>
+              <p>Canchas: {{ r.cantidad }}</p>
+              <p>Tiempo: {{ r.tiempo | tiempoJugar}}</p>
+              <p>Canchas: {{ r.cantidad }}</p>
+            </ion-label>
+            <ion-note>
+              {{ r.horaInicio }}
+            </ion-note>
+          </ion-item>
+    </ng-container>
+  </div>
+  
+
+  <ion-card *ngIf="reservasLocal.length == 0">
+    <ion-card-header>
+      <ion-img src="/assets/img/not-found.png"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      Lo sentimos pero no pudimos encontrar una reserva para
+       la fecha <strong>{{ fechaBuscar }}</strong>
+    </ion-card-content>
+  </ion-card>
+
+
+  
+
+</ion-content>

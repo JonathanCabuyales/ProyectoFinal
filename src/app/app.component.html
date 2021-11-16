@@ -1,0 +1,59 @@
+<ion-app>
+  <ion-menu  contentId="menuMovilCliente" menuId="cliente" side="end" type="push" >
+    <ion-header>
+      <ion-toolbar *ngFor="let img of datosPersonales" >
+        <ion-avatar class="ion-padding img-center">
+          <img  [src]="img.foto | fotos" />
+        </ion-avatar>
+        
+        <ion-label class="nombre">{{ img.nombre }} {{ img.apellido }}</ion-label>
+        <ion-label  class="correo">{{ img.correo }}</ion-label>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content  color="light">
+        <ion-menu-toggle menu="cliente" autoHide="true">
+          <ion-item  *ngFor="let menu of menuClientes" [routerLink]="menu.redirecTo" >
+            <ion-icon slot="start" color="primary" [name]="menu.icon"></ion-icon>
+            <ion-label>{{ menu.name }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle >
+          <ion-item (click)="cerrarSesion()">
+            <ion-icon slot="start" color="primary" name="close"></ion-icon>
+            <ion-label>Cerrar Sesión</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+          
+        
+    </ion-content>
+  </ion-menu>
+  
+  <ion-menu  contentId="menuMovilCliente" menuId="propietario" side="end" type="push" >
+    <ion-header >
+      <ion-toolbar *ngFor="let img of datosPersonales">
+        <ion-avatar class="ion-padding img-center" >
+          <img  [src]="img.foto | fotosProp" />
+        </ion-avatar>
+        <ion-label class="nombre">{{ img.nombre }} {{ img.apellido }}</ion-label>
+        <ion-label class="correo">{{ img.correo }}</ion-label>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content  color="light">
+        <ion-menu-toggle menu="propietario" autoHide="true">
+          <ion-item  *ngFor="let menu of menuPropietario" [routerLink]="menu.redirecTo" >
+            <ion-icon slot="start" color="primary" [name]="menu.icon"></ion-icon>
+            <ion-label>{{ menu.name }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle >
+          <ion-item  (click)="cerrarSesion()">
+            <ion-icon slot="start" color="primary" name="close"></ion-icon>
+            <ion-label>Cerrar Sesión</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-router-outlet id="menuMovilCliente"></ion-router-outlet>
+</ion-app>

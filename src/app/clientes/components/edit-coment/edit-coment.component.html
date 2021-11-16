@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-button *ngIf="!modificarLocal" (click)="editarComentario()">
+    <ion-icon slot="start" name="pencil-outline"></ion-icon>
+    Editar Comentario
+  </ion-button>
+  <ion-button *ngIf="modificarLocal" (click)="editarComentarioLocal()">
+    <ion-icon slot="start" name="pencil-outline"></ion-icon>
+    Editar Comentario
+  </ion-button>
+</ion-content>

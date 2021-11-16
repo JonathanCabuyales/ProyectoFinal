@@ -1,0 +1,13 @@
+
+
+<ion-content>
+  <ion-tabs >
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button *ngFor="let tab of tabsClienteLocal" [tab]="tab.tab">
+        <ion-icon [name]="tab.iconName"></ion-icon>
+        <ion-label class="mostrar">{{ tab.nombre }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

@@ -1,0 +1,15 @@
+{
+	"appId": "io.ionic.futbolInn",
+	"appName": "ProyectoFutbolInn",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"PushNotifications": {
+		  "presentationOptions": ["badge", "sound", "alert"]
+		},
+		"SplashScreen": {
+			"launchAutoHide": false,
+			"showSpinner": true
+		}
+	}
+}

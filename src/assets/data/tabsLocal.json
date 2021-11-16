@@ -1,0 +1,28 @@
+[
+    {
+        "tab"     : "informacion-cancha",
+        "iconName": "book-outline",
+        "nombre"  : "Información"
+    },
+    {
+        "tab"     : "reservar",
+        "iconName": "calendar-outline",
+        "nombre"  : "Reservar"
+    },
+    {
+        "tab"     : "reservas-activas",
+        "iconName": "book-outline",
+        "nombre"  : "Reservas activas"
+    },
+    {
+        "tab"     : "comentarios",
+        "iconName": "laptop-outline",
+        "nombre"  : "Comentarios"
+    },
+    {
+        "tab"     : "mensajes-local",
+        "iconName": "send-outline",
+        "nombre"  : "Mensaje"
+    }
+
+]

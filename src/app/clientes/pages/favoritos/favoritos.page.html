@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menuId="cliente"></ion-menu-button>
+      
+      <ion-back-button defaultHref="/tabs-cliente/ubicaciones"></ion-back-button>
+      
+    </ion-buttons>
+    <ion-title>favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light" *ngFor="let fav of favoritos; let i=index" (click)="abrirLocal(fav)">
+    <ion-card-header>
+      <ion-card-subtitle>
+        <span class="text-primary">{{ i + 1 }}. </span>
+        <span class="noticia-source-name">{{ fav.respLocal.nomLocal }}</span>
+  
+  
+        <div class="noticia-more">
+          <ion-button (click)="borrarFav(fav.idDoc)" fill="clear">
+            <ion-icon slot="icon-only" [name]=" fav.favBo ? 'heart'  : 'heart-outline'"></ion-icon>
+            <!-- {{_futbol.favoritosBool}} -->
+          </ion-button>
+        </div>
+  
+  
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-img [src]="fav.respLocal.foto | fotos"></ion-img>
+  
+    <ion-card-content>
+      <p>{{ fav.respLocal.desc }}</p>
+    </ion-card-content>
+    
+  </ion-card>
+
+  <ion-card *ngIf="cantidadFavoritos === 0">
+    <ion-card-header>
+      <ion-img src="/assets/img/not-found.png"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      No dispones de elementos favoritos guardados, pero puedes guardar en la sección de información
+      del establecimiento.
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

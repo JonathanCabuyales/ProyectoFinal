@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "171215244184",
+    "firebase_url": "https://futbolinn-e54fa-default-rtdb.firebaseio.com",
+    "project_id": "futbolinn-e54fa",
+    "storage_bucket": "futbolinn-e54fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171215244184:android:ec1b331a7d0e98829e79ed",
+        "android_client_info": {
+          "package_name": "io.ionic.futbolInn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171215244184-ohte6r1hiuuojo8gdjbu0rhqmnnaatu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoelAtuv4_SPkpDL3i96gAiiujE1SQI5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171215244184-ohte6r1hiuuojo8gdjbu0rhqmnnaatu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

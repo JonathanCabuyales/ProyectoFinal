@@ -1,0 +1,49 @@
+#mapa {
+    height: 99% !important;
+    width: 100% !important;
+    background-color: #f6f6f4;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+
+*{
+    display: flex;
+}
+
+small{
+    
+    flex-direction: column;
+}
+
+.ocultar{
+    display: none !important;
+}
+
+.popover{
+    --width: 100% !important;
+}
+ion-spinner{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.spinner{
+    font-size: 25px;
+}
+
+h5{
+    color:red;
+}
+
+.popupcolor{
+    color:red;
+}
+
+

@@ -1,0 +1,27 @@
+<ion-item *ngFor="let historial of historialReservas">
+  <!-- <ion-thumbnail slot="start">
+    <img [src]="historial.fotos | fotos" />
+  </ion-thumbnail> -->
+  <ion-label>
+    <h2>{{ historial.respLocal.nomLocal }}</h2>
+    <p>Día: {{ historial.data.dia}}</p>
+    <p>Tiempo: {{ historial.data.tiempo | tiempoJugar}}</p>
+    <p>Cancha(s): {{ historial.data.cantidad}}</p>
+  </ion-label>
+  <ion-note>
+    {{ historial.data.horaInicio }}
+  </ion-note>
+</ion-item>
+
+
+<ion-card *ngIf="historialReservas.length == 0">
+  <ion-card-header>
+    <ion-img src="/assets/img/not-found.png"></ion-img>
+  </ion-card-header>
+  <ion-card-content>
+    Lo sentimos pero no pudimos encontrar una reserva para
+     la fecha <strong>{{ fechaBuscar }}</strong>
+  </ion-card-content>
+</ion-card>
+
+

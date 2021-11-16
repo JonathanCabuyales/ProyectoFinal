@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs-propietario/pricipal-reservas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="notificaciones.length > 0">
+    
+    <ion-item  *ngFor="let notify of notificaciones" (click)="verReserva(notify)" detail>
+      <ion-label>
+        <h2>{{ notify.data.title }}</h2>
+        <p>{{ notify.data.body }}</p>
+        <p>{{ notify.data.data.mensajes |slice:0:100}}...</p>
+        
+      </ion-label>
+      <ion-note>
+        {{ notify.data.fecha | date}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
